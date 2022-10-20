@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Calculation of Stamp Duty</title>
+</head>
+<body style="text-align :center"><h1>Calculation of Stamp Duty</h1><br>
+   <script>
+function cal() {
+    if(document.getElementById("input-area").value==0)
+    {document.getElementById("input-area").placeholder="Please enter Area in Sq. Feet";}else if(document.getElementById("input-sale-price").value==0){document.getElementById("input-area").placeholder="Please enter Sale Price";}
+    else{
+    
+    
+    
+    
+    var area = document.getElementById("input-area").value;
+    area = Math.floor(area/10.76);
+
+    var sale = document.getElementById("input-sale-price").value;
+
+
+    var circleRate = area * 32200;
+
+    var payment = 0;
+    if(circleRate>sale){
+        payment = circleRate;
+    }else{
+        payment = sale;
+        
+    }payment =payment*0.05;
+
+    document.getElementById("display-area").innerHTML="Area in square meters = "+area;
+    document.getElementById("display-sale-price").innerHTML="Stamp duty = "+sale;
+    document.getElementById("display-circle-rate").innerHTML="Circle rate × 32,200 = "+circleRate;
+    document.getElementById("display-payment").innerHTML="Pay = ₹"+payment;}
+}
+
+   </script> 
+   <input id="input-area" type="number" class="form-control form" placeholder="Enter area in sq. feet" width="500px"> <br><br>
+   <input id="input-sale-price" type="number" class="form-control form" placeholder="Enter sale price" width="500px"> <br><br>
+   
+   <button onclick="cal()" class="btn btn-medium btn-primary">Calculate</button>
+   <h4 id="display-area"></h4><br><br><h4 id="display-sale-price"></h4><br><br><h4 id="display-circle-rate"></h4><br><br><h4 id="display-payment"></h4>
+</body>
+</html>
