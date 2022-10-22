@@ -12,8 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Calculation of Stamp Duty</title>
 </head>
-<body style="background-color: #aaf2f1;"><center><br><br><marquee style="background-color: #aaf2f1;"><h1 style="font-family: 'Josefin Sans', sans-serif;
-    font-family: 'Oswald', sans-serif; color: #6fa6a5;">Calculate Stamp Duty for Sikka Kimaya IT Park Dehra Dun</h1></marquee><br><br><br><br><br><br><br><br><br><br><br><br>
+<body style="background-color: #aaf2f1;"><center><br><br><h1 style="font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Oswald', sans-serif; color: #A020F0;">Calculate Stamp Duty for <label style="color: #A020F0;">Sikka</label> Kimaya IT Park Dehra Dun</h1><br><br><br><br><br><br><br><br><br><br><br><br>
    <script>
     document.addEventListener('contextmenu', 
     event => event.preventDefault());
@@ -32,7 +32,7 @@ function cal() {
     var sale = document.getElementById("input-sale-price").value;
 
 
-    var circleRate =15*84+ area * 32200;
+    var circleRate = ((15*area)*84)+(area*32200);
 
     var payment = 0;
     if(circleRate>sale){
@@ -40,11 +40,11 @@ function cal() {
     }else{
         payment = sale;
         
-    }payment =Math.ceil(payment*0.05);
+    }payment =Math.ceil((payment*0.05)+300);
 
 
     document.getElementById("display-sale-price").innerHTML ="Sale Price = ₹"+sale;
-    document.getElementById("display-circle-rate").innerHTML="Circle Rate Value = ₹"+circleRate;
+    document.getElementById("display-circle-rate").innerHTML="Total Value as per Circle Rate = ₹"+circleRate;
     document.getElementById("display-payment").innerHTML="Stamp Duty Payable = ₹"+payment;}
 }
 function reset() {
@@ -53,17 +53,20 @@ function reset() {
     document.getElementById("display-area").innerHTML = "";
     document.getElementById("display-sale-price").innerHTML = "";
     document.getElementById("display-circle-rate").innerHTML = "";
+    document.getElementById("display-payment").innerHTML = "";
 }
    </script> 
    <h3>For Calculation of Stamp Duty kindly fill the following details</h4><h3>..</h3>
    <div ><h4>Enter area in Sq. Feet</h4><input id="input-area" type="number"  width="600px"> <br><br></div>
    <div><h4>Enter Sale Price<br><input id="input-sale-price"  type="number"  width="300px"> <br><br></div>
-    <a href="https://forms.gle/ADss1vtPK9XU6yS86" style="color: black; text-decoration: none">Click Here to submit your documents</a><br><br><br>
+    <br>
    
    <button onclick="cal()" class="btn btn-medium btn-primary">Calculate</button>
    <button onclick="reset()" class="btn btn-medium btn-danger">Reset</button>
-   <div><h4 id="display-area"></h4><br><br><h4 id="display-sale-price"></h4><br><br><h4 id="display-circle-rate"></h4><br><br><h4 id="display-payment"></h4></div><h5>Stamp Duty is for reference purpose only and may vary on the basis of actual documents.</h5><div style = "padding-top: 50px; bottom: 0; width: 100%; border-top: 10px 'dotted' transparent; border-top-left-radius: 100px;border-top-right-radius: 100px;
+   <br><br><br><br><h4 id="display-payment"></h4></div><h4>Disclaimer: Stamp Duty is for reference purpose only and may vary on the basis of actual documents.</h4><br><br><a href="https://forms.gle/ADss1vtPK9XU6yS86" style="color: #A020F0;"; text-decoration: none">Click Here to submit your documents</a>
+   <div><h4 id="display-area"></h4><br><br><h4 id="display-sale-price"></h4><br><br><h4 id="display-circle-rate"></h4><br><br><div style = "padding-top: 50px;
+   bottom: 0; width: 100%; border-top: 10px 'dotted' transparent; border-top-left-radius: 100px;border-top-right-radius: 100px;
        text-align: center;
-   height :100px;"><h4>Powered By MultiSeven</h4></div></center>
+   height :100px;"><h5>Powered By MultiSeven</h5></div></center>
 </body>
 </html>
