@@ -15,8 +15,23 @@
 <body style='background-image: url("slide-11.jpg");'><center><br><br><h1 style="font-family: 'Josefin Sans', sans-serif;
     font-family: 'Oswald', sans-serif; color: #6CA0D5; font-weight: 900;">Calculate Stamp Duty for <label style="color: #83B534; font-weight: 900;">Sikka Kimaya</label> IT Park Dehra Dun</h1><br><br>
    <script>
-    document.addEventListener('contextmenu', 
-    event => event.preventDefault());
+   document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+function ctrlShiftKey(e, keyCode) {
+  return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+}
+
+document.onkeydown = (e) => {
+  // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+  if (
+    event.keyCode === 123 ||
+    ctrlShiftKey(e, 'I') ||
+    ctrlShiftKey(e, 'J') ||
+    ctrlShiftKey(e, 'C') ||
+    (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+  )
+    return false;
+};
 function cal() {
    
     if(document.getElementById("input-area").value==0)
@@ -45,7 +60,7 @@ function cal() {
 
     document.getElementById("display-sale-price").innerHTML ="Sale Price = ₹"+sale;
     document.getElementById("display-circle-rate").innerHTML="Total Value as per Circle Rate = ₹"+circleRate;
-    document.getElementById("display-payment").innerHTML="Stamp Duty Payable = ₹"+payment+"<br><br>";}
+    document.getElementById("display-payment").innerHTML="Stamp Duty Payable = ₹"+payment;}
 }
 function reset() {
     document.getElementById("input-area").value = "";
@@ -62,16 +77,16 @@ function reset() {
    
    <button onclick="cal()" class="btn btn-medium btn-primary" style="font-weight: 900;">Calculate</button>
    <button onclick="reset()" class="btn btn-medium btn-danger" style="font-weight: 900;">Reset</button>
-   <br><br><br><br></h4><br><br><h4 id="display-sale-price" style="font-weight: 900;"></h4><br><br><h4 id="display-circle-rate" style="font-weight: 900;"></h4>
-   <br><br><h4 id="display-payment" style="font-weight: 900;"></h4></div>
+   <br></h4><br><br><h4 id="display-sale-price" style="font-weight: 900;"></h4><br><h4 id="display-circle-rate" style="font-weight: 900;"></h4>
+   <br><h4 id="display-payment" style="font-weight: 900;"></h4></div>
    <div style="font-weight: 900;">
-    <a href="https://forms.gle/ADss1vtPK9XU6yS86" style="text-decoration: none; "><h4 style="font-weight: 900;" >Click Here to submit your documents</h4></a><br><h4 style="font-weight: 900;">Disclaimer: Stamp Duty is for reference purpose only and may vary on the basis of actual documents.</h4>
+    <a href="https://forms.gle/ADss1vtPK9XU6yS86" style="text-decoration: none; "><h4 style="font-weight: 900;" ><br><br>Click Here to submit your documents</h4></a><br><h4 style="font-weight: 900;">Disclaimer: Stamp Duty is for reference purpose only and may vary on the basis of actual documents.</h4>
     <br><br>
 
-   <br><br><div style = "padding-top: 50px; font-weight: 900;
-   bottom: 0; width: 100%; border-top: 10px 'dotted' transparent; border-top-left-radius: 100px;border-top-right-radius: 100px;
+   <br><br><div style = " font-weight: 900;
+    width: 100%; 
        text-align: center;
        
-   height :100px;"><h5 style="font-weight: 900; color: #de2a2a;">Powered by MultiSeven</h5></div></center>
+   height :100px;"><h4 style="font-weight: 900; color: #de2a2a;">Powered by MultiSeven</h4></div></center>
 </body>
 </html>
